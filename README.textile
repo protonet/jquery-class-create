@@ -1,0 +1,12 @@
+h1. Class.create([superclass][, methods...])
+
+* _superclass_ (Class) – The optional superclass to inherit methods from.
+* _methods_ (Object) – An object whose properties will be "mixed-in" to the new class. Any number of mixins can be added; later mixins take precedence.
+
+*Class.create* creates a class and returns a constructor function for instances of the class. Calling the constructor function (typically as part of a new statement) will invoke the class's initialize method.
+
+*Class.create* accepts two kinds of arguments. If the first argument is a Class, it's used as the new class's superclass, and all its methods are inherited. Otherwise, any arguments passed are treated as objects, and their methods are copied over ("mixed in") as instance methods of the new class. In cases of method name overlap, later arguments take precedence over earlier arguments.
+
+If a subclass overrides an instance method declared in a superclass, the subclass's method can still access the original method. To do so, declare the subclass's method as normal, but insert $super as the first argument. This makes $super available as a method for use within the function.
+
+*For details, see the ["inheritance tutorial on the Prototype website":http://prototypejs.org/learn/class-inheritance].*
